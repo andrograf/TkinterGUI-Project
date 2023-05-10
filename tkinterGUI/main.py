@@ -1,2 +1,5 @@
+import tkinter as tk
 
-print("hello");
+root = tk.Tk()
+
+root.mainloop()
