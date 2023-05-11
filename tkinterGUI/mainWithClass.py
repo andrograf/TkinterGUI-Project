@@ -23,15 +23,17 @@ class MyGUI:
         # add checkbox to window
         self.checkbox.pack()
         
-        # create button
-        self.message_show_button =  tk.Button(self.root, text="show message", font=("Arial", 14))
+        # create button - on click, it calls the 'show_message' method
+        self.message_show_button =  tk.Button(self.root, text="show message", font=("Arial", 14), command=self.show_message)
         # add button to window
         self.message_show_button.pack()
         
         # start mainloop - MUST
         self.root.mainloop()
 
-
+    # create method for button logic
+    def show_message(self):
+        pass
 
 
 win = MyGUI()
