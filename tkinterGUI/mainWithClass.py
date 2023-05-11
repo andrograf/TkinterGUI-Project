@@ -13,6 +13,13 @@ class MyGUI:
         self.textbox = tk.Text(self.root, height=5, font=("Arial",16))
         # add textbox to window
         self.textbox.pack(padx=10, pady=10)
+
+        # create an integer variable intant to hold the checkbox state
+        self.checkbox_state = tk.IntVar()
+        # create a checkbox
+        self.checkbox = tk.Checkbutton(self.root, text="checkbox", font=("Arial", 16), variable=self.checkbox_state)
+        # add checkbox to window
+        self.checkbox.pack()
         # start mainloop
         self.root.mainloop()
 
