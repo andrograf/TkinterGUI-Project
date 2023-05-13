@@ -16,6 +16,8 @@ class MyGUI:
         self.textbox = tk.Text(self.root, height=5, font=("Arial",16))
         # add textbox to window
         self.textbox.pack(padx=10, pady=10)
+        # bind key event to textbox
+        self.textbox.bind("<KeyPress>", self.shortcut)
 
         # create an integer variable intant to hold the checkbox state
         self.checkbox_state = tk.IntVar()
@@ -40,5 +42,10 @@ class MyGUI:
         else:
             ## print a messagebox
             messagebox.showinfo(title="Message", message=self.textbox.get("1.0", tk.END))
+
+    ## show message when left ctrl + enter is pressed
+    def shortcut(self, event):
+        if event.state == 12 and event.keysym == "Return":
+            self.show_message()
 
 win = MyGUI()
