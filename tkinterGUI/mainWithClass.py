@@ -43,7 +43,12 @@ class MyGUI:
         self.message_show_button =  tk.Button(self.root, text="show message", font=("Arial", 14), command=self.show_message)
         # add button to window
         self.message_show_button.pack()
-        
+        # create clear button
+        self.clear_text_button = tk.Button(self.root, text="clear", font=("Arial", 14), command=self.clear)
+        # add button to window
+        self.clear_text_button.pack()
+
+
 
         # start warning method on app closing
         self.root.protocol("WM_DELETE_WINDOW",self.on_closing)
@@ -70,4 +75,7 @@ class MyGUI:
         if messagebox.askyesno(title="WARNING", message="Do you really want to quit?"):
             self.root.destroy()
 
+    # clear text method
+    def clear(self):
+        self.textbox.delete("1.0", tk.END)
 win = MyGUI()
