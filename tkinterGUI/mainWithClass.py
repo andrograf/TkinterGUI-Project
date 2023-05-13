@@ -7,6 +7,19 @@ class MyGUI:
         # inicialize a window instant - MUST
         self.root = tk.Tk()
         
+        # create menu
+        self.menu_bar = tk.Menu(self.root)
+        # create submenu
+        self.file_menu = tk.Menu(self.menu_bar, tearoff=0)
+        self.file_menu.add_command(label="Close With Question", command=self.on_closing)
+        self.file_menu.add_separator()
+        self.file_menu.add_command(label="Close", command=exit)
+
+        # add submenu to menu instant
+        self.menu_bar.add_cascade(menu=self.file_menu, label="File")
+        # add menu to window
+        self.root.config(menu=self.menu_bar)
+
         # create a label(text content)
         self.label = tk.Label(self.root, text="Content", font=("Arial", 18))
         # add label to window
