@@ -31,6 +31,10 @@ class MyGUI:
         # add button to window
         self.message_show_button.pack()
         
+
+        # start warning method on app closing
+        self.root.protocol("WM_DELETE_WINDOW",self.on_closing)
+
         # start mainloop - MUST
         self.root.mainloop()
 
@@ -47,5 +51,10 @@ class MyGUI:
     def shortcut(self, event):
         if event.state == 12 and event.keysym == "Return":
             self.show_message()
+
+    ## warning message popup window
+    def on_closing(self):
+        if messagebox.askyesno(title="WARNING", message="Do you really want to quit?"):
+            self.root.destroy()
 
 win = MyGUI()
