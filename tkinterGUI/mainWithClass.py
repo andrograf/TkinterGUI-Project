@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 
 class MyGUI:
     # constructor
@@ -33,7 +34,11 @@ class MyGUI:
 
     # create method for button logic
     def show_message(self):
-        pass
-
+        if self.checkbox_state.get() == 0:
+            ## print textbox message, using a getter method
+            print(self.textbox.get('1.0', tk.END))
+        else:
+            ## print a messagebox
+            messagebox.showinfo(title="Message", message=self.textbox.get("1.0", tk.END))
 
 win = MyGUI()
