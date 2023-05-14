@@ -13,4 +13,9 @@ class Person(Base): # inherit from Base class
     gender = Column("gender", CHAR)
     age = Column("age", Integer)
 
-    
+    def __init__(self, ssn, fn, ln, gender, age):
+        self.social_security_number = ssn
+        self.first_name = fn
+        self.last_name = ln
+        self.gender = gender
+        self.age = age
