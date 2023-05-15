@@ -19,3 +19,6 @@ class Person(Base): # inherit from Base class
         self.last_name = ln
         self.gender = gender
         self.age = age
+
+    def __refr__(self):
+        return f"({self.first_name},{self.last_name},{self.gender},{self.age})"
